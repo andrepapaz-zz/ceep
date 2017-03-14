@@ -1,4 +1,4 @@
-let versao = 4
+let versao = 8
 
 let arquivos = [
 "/",
@@ -30,11 +30,8 @@ let arquivos = [
 "js/mural/render/Mural_render.js",
 "js/mural/Mural.js",
 "js/cabecalho/novoCartao.js",
-"img/bin.svg",
 "img/bin2.svg",
-"img/close.svg",
 "img/edit.svg",
-"img/palette.svg"
 ]
 
 self.addEventListener("install", function(){
@@ -45,13 +42,16 @@ self.addEventListener("activate", function(){
     caches.open("ceep-arquivos-" + versao).then(cache => {
         cache.addAll(arquivos)
             .then(function(){
-                caches.delete("ceep-arquivos-" + (versao - 1))
-                caches.delete("ceep-arquivos")
+                caches.delete("ceep-arquivos-" + (versao - 1 ))   
+                caches.delete("ceep-arquivos")   
             })
+        
     })
 })
 
+
 self.addEventListener("fetch", function(event){
+
     let pedido = event.request
     let promiseResposta = caches.match(pedido).then(respostaCache => {
         let resposta = respostaCache ? respostaCache : fetch(pedido)
@@ -59,4 +59,6 @@ self.addEventListener("fetch", function(event){
     })
 
     event.respondWith(promiseResposta)
+
 })
+

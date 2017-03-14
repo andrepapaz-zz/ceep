@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#v4
+#v8
 
 CACHE:
 css/estilos.css
@@ -31,11 +31,8 @@ js/login/LoginUsuario.js
 js/mural/render/Mural_render.js
 js/mural/Mural.js
 js/cabecalho/novoCartao.js
-img/bin.svg
 img/bin2.svg
-img/close.svg
 img/edit.svg
-img/palette.svg
 
 NETWORK:
 *
